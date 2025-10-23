@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOW - BOOST Swingometer</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+      font-family: "Arial Black", sans-serif;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .headline {
+      text-align: center;
+      max-width: 80%;
+      font-size: 1.3rem;
+      font-weight: bold;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    #headline-text {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    #headline-indicator {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    #headline-indicator.boost {
+      color: #2a9d8f; /* same green as boost side */
+    }
+
+    #headline-indicator.blow {
+      color: #d62828; /* same red as blow side */
+    }
+
+    .swingometer {
+      position: relative;
+      width: min(80vw, 600px);
+      height: calc(min(80vw, 600px) / 2);
+      margin-top: 1rem;
+    }
+
+    /* The semicircle background */
+    .dial {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 1000px;
+      border-top-right-radius: 1000px;
+      background: linear-gradient(to right, #d62828 0%, #f5f5f5 50%, #2a9d8f 100%);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      border: 4px solid #333;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .reeves {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 75%;
+      height: auto;
+      pointer-events: none;
+      z-index: 2;
+      filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.5))
+              brightness(1.05)
+              contract(1.05);
+    }
+
+    /* The arrow/pointer */
+    .arrow {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 6px;
+      height: 90%;
+      background: #333;
+      transform-origin: bottom center;
+      transition: transform 1s ease-out;
+      z-index: 3;
+    }
+
+    /* Labels */
+    .labels {
+      display: flex;
+      justify-content: space-between;
+      width: min(85vw, 640px);
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .blow { color: #d62828; }
+    .boost { color: #2a9d8f; }
+
+    .bloost {
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    .disclaimer {
+      position: fixed;
+      bottom: 8px;
+      right: 12px;
+      font-size: 0.8rem;
+      color: #2f2f2f;
+      font-family: Arial, sans-serif;
+      opacity: 0.7;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>REEVESOMETER</h1>
+
+  <div class="headline">
+    <span id="headline-text">
+       22/10/2025 FINANCIAL TIMES: UK BORROWING COSTS FALL IN BOOST FOR RACHEL REEVES
+    </span>
+    <span id="headline-indicator" class="boost">
+      REEVESOMETER estimates ▲ 17% boost
+    </span>
+  </div>
+  
+
+  <div class="swingometer">
+    <div class="bloost">BLOOST</div>
+    <div class="dial">
+      <img src="media/reeves.png" alt="Rachel Reeves" class="reeves">
+    </div>
+    <div class="arrow" id="arrow"></div>
+  </div>
+
+  <div class="labels">
+    <span class="blow">Blow</span>
+    <span class="boost">Boost</span>
+  </div>
+
+  <div class="disclaimer">this is, of course, a parody (but the 
+    <a href="https://www.ft.com/content/20d8566b-94e0-440c-a756-bf54ba11550d" target="blank" rel="noopener">headline</a>
+    is real)
+  </div>
+
+  <script>
+    // Set your desired angle here:
+    // -90 = full blow, 0 = bloost, +90 = full boost
+    const angle = 35; // <-- pointer angle
+  
+    function setArrow(angle) {
+      const arrow = document.getElementById("arrow");
+      arrow.style.transform = `rotate(${angle}deg)`;
+    }
+  
+    // Initialise
+    window.onload = () => {
+      setArrow(angle);
+      updateHeadline(angle);
+    };
+  </script>
+  
+</body>
+</html>
