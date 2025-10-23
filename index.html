@@ -49,6 +49,12 @@
       margin-bottom: 0.5rem;
     }
 
+    .the-word {
+      color:#2a9d8f;
+      font-size: 1.15em;
+      font-weight: 900;
+    }
+
     #headline-indicator {
       font-size: 0.9rem;
       font-weight: bold;
@@ -165,6 +171,47 @@
       opacity: 0.7;
     }
 
+    /* --- Mobile layout adjustments --- */
+@media (max-width: 600px) {
+  body {
+    justify-content: flex-start;
+    padding-top: 0.5rem;
+  }
+
+  h1 {
+    margin-top: 0.5rem;   /* move title closer to the top */
+    margin-bottom: 1.5rem;
+    font-size: 2rem;      /* slightly smaller for phones */
+  }
+
+  .headline {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .swingometer {
+    width: 90vw;
+    height: 45vw;         /* maintain the half-circle ratio */
+    margin-top: 1rem;
+  }
+
+  .labels {
+    width: 95vw;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+  }
+
+  .disclaimer {
+    position: relative;   /* take it out of fixed positioning */
+    bottom: auto;
+    right: auto;
+    margin-top: 1rem;
+    text-align: center;   /* center align looks cleaner on phones */
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -172,7 +219,8 @@
 
   <div class="headline">
     <span id="headline-text">
-       23/10/2025 THE TELEGRAPH: TECH TYCOON FLOATS £10bn OXFORD INVESTMENT IN BOOST FOR REEVES
+       23/10/2025 THE TELEGRAPH: TECH TYCOON FLOATS £10bn OXFORD INVESTMENT IN 
+       <span class="the-word">BOOST</span> FOR REEVES
     </span>
     <span id="headline-indicator" class="boost">
       REEVES-O-METER estimates ▲ 12% boost
