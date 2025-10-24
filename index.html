@@ -50,7 +50,7 @@
     }
 
     .the-word {
-      color:#2a9d8f;
+      color:#2a9d8f; /* update colour if necessary before each deployment */
       font-size: 1.15em;
       font-weight: 900;
     }
@@ -171,6 +171,121 @@
       opacity: 0.7;
     }
 
+    /* --- Voting section --- */
+    .vote-section {
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 2.5rem;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    .vote-prompt {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .vote-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .vote-btn {
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .blow-btn {
+      color: #d62828;
+      border-color: #d62828;
+    }
+
+    .boost-btn {
+      color: #2a9d8f;
+      border-color: #2a9d8f;
+    }
+
+    .vote-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .share-section {
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      font-family: Arial, sans-serif;
+      color: #444;
+      opacity: 0.9;
+    }
+
+    .share-section p {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .share-btn {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 0.5rem 1.25rem;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      border: 2px solid #ccc;
+      color: #333;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .share-btn:hover {
+      border-color: #999;
+      background: rgba(240, 240, 240, 0.9);
+    }
+
+    /* Optional subtle brand hints */
+    .share-btn.twitter:hover {
+      color: #1da1f2;
+      border-color: #1da1f2;
+    }
+
+    .past-link {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #333;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid #ccc;
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      opacity: 0.8;
+      z-index: 10;
+    }
+
+    .past-link:hover {
+      opacity: 1;
+      background: rgba(240, 240, 240, 0.9);
+      border-color: #999;
+    }
+
     /* --- Mobile layout adjustments --- */
 @media (max-width: 600px) {
   body {
@@ -192,13 +307,17 @@
   .swingometer {
     width: 90vw;
     height: 45vw;         /* maintain the half-circle ratio */
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   .labels {
     width: 95vw;
     font-size: 1.1rem;
     margin-top: 0.5rem;
+  }
+
+  .bloost {
+    font-size: 1.1rem;
   }
 
   .disclaimer {
@@ -210,19 +329,77 @@
     font-size: 0.75rem;
     opacity: 0.8;
   }
+
+  .share-section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .share-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+    .past-link {
+      position: static;          /* make it flow with content */
+      display: block;
+      margin: 0.5rem auto 0.5rem auto;
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: fit-content;
+      background: rgba(255, 255, 255, 0.8);
+      opacity: 0.85;
+    }
+
+    .past-link:hover {
+      opacity: 1;
+      background: rgba(240, 240, 240, 0.9);
+    }
+
+  /* --- Mobile adjustments for vote section --- */
+  .vote-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .vote-prompt {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+
+  .vote-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .vote-btn {
+    width: 80%;
+    max-width: 280px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+  }
 }
 
   </style>
 </head>
 <body>
+  
   <h1>REEVES-O-METER</h1>
 
   <div class="headline">
+    <!-- update this headline and the-word before each deployment-->
     <span id="headline-text">
        23/10/2025 THE TELEGRAPH: TECH TYCOON FLOATS £10bn OXFORD INVESTMENT IN 
        <span class="the-word">BOOST</span> FOR REEVES
     </span>
     <span id="headline-indicator" class="boost">
+      <!-- update estimate and class before each deployment-->
       REEVES-O-METER estimates ▲ 12% boost
     </span>
   </div>
@@ -241,27 +418,85 @@
     <span class="boost">Boost!</span>
   </div>
 
+  <div class="vote-section">
+    <p class="vote-prompt">
+      Will the next headline be a <span class="boost-word">boost</span> or a <span class="blow-word">blow</span> for Reeves?
+    </p>
+
+    <div class="vote-buttons">
+      <button class="vote-btn blow-btn" onclick="vote('blow')">💨 Blow</button>
+      <button class="vote-btn boost-btn" onclick="vote('boost')">🚀 Boost</button>
+    </div>
+  </div>
+
+  <div class="share-section">
+    <p>Share today’s reading:</p>
+    <div class="share-buttons">
+      <!-- update "BOOST" or "BLOW" in share url-->
+      <a href="https://twitter.com/intent/tweet?text=Today’s%20Reeves-o-meter%20reading%20is%20a%20BOOST%20for%20Rachel%20Reeves!%20https%3A%2F%2Freevesometer.co.uk"
+        target="_blank" rel="noopener" class="share-btn twitter">
+        X / Twitter
+      </a>
+    </div>
+  </div>
+
+  <a href="past.html" class="past-link">Past Headlines</a>
+
   <div class="disclaimer">this is, of course, a parody (but the 
+    <!-- update this url before each deployment-->
     <a href="https://www.telegraph.co.uk/business/2025/10/23/tech-tycoon-floats-10bn-oxford-investment-boost-reeves/" target="blank" rel="noopener">headline</a>
     is real)
   </div>
 
-  <script>
-    // Set your desired angle here:
-    // -90 = full blow, 0 = bloost, +90 = full boost
-    const angle = 45; // <-- pointer angle
-  
-    function setArrow(angle) {
-      const arrow = document.getElementById("arrow");
-      arrow.style.transform = `rotate(${angle}deg)`;
-    }
-  
-    // Initialise
-    window.onload = () => {
-      setArrow(angle);
-      updateHeadline(angle);
-    };
-  </script>
+<script>
+  // ---- Official starting angle you control ----
+  // -90 = full blow, 0 = bloost, +90 = full boost
+  const DEFAULT_ANGLE = 45;   // <-- change this before each deployment
+  const DEPLOY_DATE = "24102025"; // <-- change this before each deployment
+  const STORAGE_KEY   = `reevesometerAngle_${DEPLOY_DATE}`;
+  const MAX_ANGLE     = 10;   // user movement range
+  const STEP          = 2;    // each click = 2°
+
+  const arrow = document.getElementById("arrow");
+
+  function setArrow(angle) {
+    arrow.style.transform = `rotate(${angle}deg)`;
+  }
+
+  function getStoredAngle() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? parseInt(saved, 10) : null;
+  }
+
+  function saveAngle(angle) {
+    localStorage.setItem(STORAGE_KEY, angle);
+  }
+
+  function updateAngle(change) {
+    // Start from stored angle or default
+    let base = getStoredAngle();
+    if (base === null) base = DEFAULT_ANGLE;
+
+    let newAngle = Math.max(
+      DEFAULT_ANGLE - MAX_ANGLE,
+      Math.min(DEFAULT_ANGLE + MAX_ANGLE, base + change)
+    );
+
+    saveAngle(newAngle);
+    setArrow(newAngle);
+  }
+
+  function vote(side) {
+    if (side === "boost") updateAngle(STEP);
+    if (side === "blow")  updateAngle(-STEP);
+  }
+
+  window.onload = () => {
+    const saved = getStoredAngle();
+    const startingAngle = saved !== null ? saved : DEFAULT_ANGLE;
+    setArrow(startingAngle);
+  };
+</script>
   
 </body>
 </html>

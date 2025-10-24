@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Past Headlines | Reevesometer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background: #f5f5f5;
+      font-family: "Arial Black", sans-serif;
+      color: #222;
+      padding-top: 3rem;
+    }
+
+    h1 {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 700px;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #eee;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    tr:hover {
+      background: #f9f9f9;
+    }
+
+    .date, .source {
+        font-size: 0.8rem;
+    }
+
+    .link {
+        font-size: 0.9rem;
+    }
+
+    .boost {
+      color: #2a9d8f;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    .blow {
+      color: #d62828;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    a {
+      color: #333;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #616161;
+    }
+
+    .text {
+        margin-top: 2rem;
+        font-size: 0.8rem;
+        color: #616161;
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 700px) {
+  td:last-child,
+  th:last-child {
+    min-width: 120px; /* increase or decrease as you like (default ~100px) */
+  }
+}
+  </style>
+</head>
+<body>
+  <h1>Past Headlines</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>DATE</th>
+        <th>HEADLINE</th>
+        <th>SOURCE</th>
+        <th>BLOW / BOOST</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="date">23 Oct 2025</td>
+        <td class="link"><a href="https://www.telegraph.co.uk/business/2025/10/23/tech-tycoon-floats-10bn-oxford-investment-boost-reeves/">Tech tycoon floats £10bn Oxford investment in boost for Reeves</a></td>
+        <td class="source">The Telegraph</td>
+        <td class="boost">▲ 12% BOOST</td>
+      </tr>
+       <tr>
+        <td class="date">22 Oct 2025</td>
+        <td class="link"><a href="https://www.ft.com/content/20d8566b-94e0-440c-a756-bf54ba11550d">UK borrowing costs fall in boost for Rachel Reeves</a></td>
+        <td class="source">The Financial Times</td>
+        <td class="boost">▲ 17% BOOST</td>
+      </tr>       
+      <tr>
+        <td class="date">14 Oct 2025</td>
+        <td class="link"><a href="https://www.express.co.uk/showbiz/tv-radio/2120955/gmb-interrupted-breaking-alert-devastating">GMB interrupted for breaking alert as devastating double blow to Rachel Reeves announced</a></td>
+        <td class="source">Daily Express</td>
+        <td class="blow">▼ 15% BLOW</td>
+      </tr>
+      <!-- Calling some of these "news" sites is a stretch... -->
+    </tbody>
+  </table>
+
+  <div class="text">
+    Oh. Were you expecting more? If I've missed any new ones - <a href="https://x.com/bloworboost">@bloworboost</a>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Reevesometer</a>
+  </div>
+</body>
+</html>
