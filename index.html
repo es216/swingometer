@@ -497,8 +497,16 @@
   function vote(side) {
     if (side === "boost") updateAngle(STEP);
     if (side === "blow")  updateAngle(-STEP);
-  }
+  
 
+    if (typeof gtag === "function") {
+      gtag('event', 'vote_click', {
+        event_category: 'Engagement',
+        event_label: side
+      });
+    }
+  }
+  
   window.onload = () => {
     const saved = getStoredAngle();
     const startingAngle = saved !== null ? saved : DEFAULT_ANGLE;
