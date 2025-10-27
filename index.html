@@ -50,7 +50,7 @@
     }
 
     .the-word {
-      color:#2a9d8f; /* update colour if necessary before each deployment */
+      color:#d62828; /* update colour if necessary before each deployment */
       font-size: 1.15em;
       font-weight: 900;
     }
@@ -112,7 +112,7 @@
       left: 50%;
       width: 6px;
       height: 90%;
-      background: #333;
+      background: #000000;
       transform-origin: bottom center;
       transition: transform 1s ease-out;
       z-index: 3;
@@ -402,12 +402,12 @@
   <div class="headline">
     <!-- update this headline and the-word before each deployment-->
     <span id="headline-text">
-       23/10/2025 THE TELEGRAPH: TECH TYCOON FLOATS £10bn OXFORD INVESTMENT IN 
-       <span class="the-word">BOOST</span> FOR REEVES
+       27/10/2025 THE TELEGRAPH: 
+       <span class="the-word">BLOW</span> FOR REEVES AFTER FACTORY SPENDING COLLAPSES TO LOWEST SINCE BREXIT
     </span>
-    <span id="headline-indicator" class="boost">
+    <span id="headline-indicator" class="blow">
       <!-- update estimate and class before each deployment-->
-      REEVES-O-METER estimates ▲ 12% boost
+      REEVES-O-METER estimates ▼ 23% blow
     </span>
   </div>
   
@@ -440,7 +440,7 @@
     <p>Share today’s reading:</p>
     <div class="share-buttons">
       <!-- update "BOOST" or "BLOW" in share url-->
-      <a href="https://twitter.com/intent/tweet?text=Today’s%20Reeves-o-meter%20reading%20is%20a%20BOOST%20for%20Rachel%20Reeves!%20https%3A%2F%2Freevesometer.co.uk"
+      <a href="https://twitter.com/intent/tweet?text=Today’s%20Reeves-o-meter%20reading%20is%20a%20BLOW%20for%20Rachel%20Reeves!%20https%3A%2F%2Freevesometer.co.uk"
         target="_blank" rel="noopener" class="share-btn twitter"
         onclick="gtag('event', 'share_twitter', { 'event_category': 'engagement', 'event_label': 'Twitter Share Button' });">
         X / Twitter
@@ -452,15 +452,15 @@
 
   <div class="disclaimer">this is, of course, a parody (but the 
     <!-- update this url before each deployment-->
-    <a href="https://www.telegraph.co.uk/business/2025/10/23/tech-tycoon-floats-10bn-oxford-investment-boost-reeves/" target="blank" rel="noopener">headline</a>
+    <a href="https://www.telegraph.co.uk/business/2025/10/27/factory-spending-collapses-to-lowest-since-brexit/" target="blank" rel="noopener">headline</a>
     is real)
   </div>
 
 <script>
   // ---- Official starting angle you control ----
   // -90 = full blow, 0 = bloost, +90 = full boost
-  const DEFAULT_ANGLE = 45;   // <-- change this before each deployment
-  const DEPLOY_DATE = "24102025"; // <-- change this before each deployment
+  const DEFAULT_ANGLE = 11;   // <-- change this before each deployment
+  const DEPLOY_DATE = "27102025"; // <-- change this before each deployment
   const STORAGE_KEY   = `reevesometerAngle_${DEPLOY_DATE}`;
   const MAX_ANGLE     = 10;   // user movement range
   const STEP          = 2;    // each click = 2°
