@@ -12,7 +12,34 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOW OR BOOST?</title>
+
+  <title>Reeves-o-meter | Tracking blows and boosts for Rachel Reeves</title>
+
+  <meta name="title" content="Reeves-o-Meter | Blow or Boost?">
+  <meta name="description" content="Tracking the nation's most important economic indicator: blows and boosts to Rachel Reeves">
+  <meta name="keywords" content="Rachel Reeves, UK politics, parody, blow or boost, budget 2025, Reevesometer">
+  <link rel="canonical" href="https://reevesometer.co.uk/">
+  <link rel="icon" type="image/png" sizes="32x32" href="media/favicon.png">
+  <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+ 
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reevesometer.co.uk/">
+  <meta property="og:title" content="Reeves-o-Meter | Blow or Boost?">
+  <meta property="og:description" content="Tracking blows and boosts to Rachel Reeves, one headline at a time.">
+  <meta property="og:image" content="https://reevesometer.co.uk/media/share.png">
+  <meta property="og:site_name" content="Reeves-o-Meter">
+  <meta property="og:locale" content="en_GB">
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://reevesometer.co.uk/">
+  <meta name="twitter:title" content="Reeves-o-Meter | Blow or Boost?">
+  <meta name="twitter:description" content="Tracking blows and boosts to Rachel Reeves, one headline at a time.">
+  <meta name="twitter:image" content="https://reevesometer.co.uk/media/share.png">
+
   <style>
     body {
       margin: 0;
@@ -111,7 +138,7 @@
       bottom: 0;
       left: 50%;
       width: 6px;
-      height: 90%;
+      height: 105%;
       background: #000000;
       transform-origin: bottom center;
       transition: transform 1s ease-out;
@@ -136,13 +163,42 @@
 
     .bloost {
       position: absolute;
-      top: -2rem;
+      top: -2.5rem;
       left: 50%;
       transform: translateX(-50%);
       font-size: 1.5rem;
       font-weight: bold;
       text-transform: uppercase;
       color: #555;
+    }
+
+    .scorecard-header {
+      margin-top: 1rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    .scorecard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    .boost-score {
+      color: #2a9d8f;
+    }
+
+    .blow-score {
+      color: #d62828;
     }
 
     button {
@@ -174,15 +230,15 @@
     /* --- Voting section --- */
     .vote-section {
       text-align: center;
-      margin-top: 3rem;
-      margin-bottom: 2.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
       font-family: Arial, sans-serif;
       color: #333;
     }
 
     .vote-prompt {
       font-size: 1.1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
       line-height: 1.4;
     }
 
@@ -238,18 +294,29 @@
       display: flex;
       justify-content: center;
       gap: 1rem;
+      align-items: center;
     }
 
     .share-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: bold;
-      padding: 0.5rem 1.25rem;
+      line-height: 1;
+      padding: 0.6rem 1.25rem;
       border-radius: 20px;
-      transition: all 0.2s ease;
       border: 2px solid #ccc;
       color: #333;
       background: rgba(255, 255, 255, 0.7);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      height: 40px;
+      box-sizing: border-box;
+      margin: 0;            
+      position: relative;      
+      top: 1px;                
     }
 
     .share-btn:hover {
@@ -263,6 +330,18 @@
       border-color: #1da1f2;
     }
 
+    .share-btn.copy-btn {
+      background: rgba(255, 255, 255, 0.7);
+      border: 2px solid #ccc;
+      color: #333;
+    }
+
+    .share-btn.copy-btn:hover {
+      background: rgba(240, 240, 240, 0.9);
+      border-color: #999;
+    }
+
+  
     .past-link {
       position: absolute;
       top: 1.2rem;
@@ -295,9 +374,9 @@
   }
 
   h1 {
-    margin-top: 0.5rem;   /* move title closer to the top */
-    margin-bottom: 1.5rem;
-    font-size: 2rem;      /* slightly smaller for phones */
+    margin-top: 0.5rem; 
+    margin-bottom: 0.5rem;
+    font-size: 2rem;      
   }
 
   .headline {
@@ -307,13 +386,13 @@
 
   .swingometer {
     width: 90vw;
-    height: 40vw;
-    min-height: 220px;
+    height: 32vw;
+    min-height: 180px;
     margin-top: 2rem;
   }
 
   .arrow {
-    height: 75%;
+    height: 105%;
   }
 
   .labels {
@@ -327,28 +406,30 @@
   }
 
   .disclaimer {
-    position: relative;   /* take it out of fixed positioning */
+    position: relative;  
     bottom: auto;
     right: auto;
     margin-top: 1rem;
-    margin-bottom: 2.5rem;
-    text-align: center;   /* center align looks cleaner on phones */
+    padding-bottom: 1rem;
+    text-align: center;   
     font-size: 0.75rem;
     opacity: 0.8;
   }
 
   .share-section {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
   }
 
   .share-buttons {
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
+
     .past-link {
-      position: static;          /* make it flow with content */
+      position: static;         
       display: block;
       margin: 0.5rem auto 0.5rem auto;
       text-align: center;
@@ -368,8 +449,8 @@
 
   /* --- Mobile adjustments for vote section --- */
   .vote-section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     padding: 0 1rem;
   }
 
@@ -425,9 +506,17 @@
     <span class="boost">Boost!</span>
   </div>
 
+  <div class="scorecard-header">Budget season scorecard</div>
+
+  <div class="scorecard">
+    <span class="boost-score">BOOSTS: 2</span>
+    <span class="divider">|</span>
+    <span class="blow-score">BLOWS: 3</span>
+  </div>
+
   <div class="vote-section">
     <p class="vote-prompt">
-      Will the next headline be a <span class="boost-word">boost</span> or a <span class="blow-word">blow</span> for Reeves?
+      Will the next headline be a boost</span> or a blow</span> for Reeves?
     </p>
 
     <div class="vote-buttons">
@@ -445,6 +534,11 @@
         onclick="gtag('event', 'share_twitter', { 'event_category': 'engagement', 'event_label': 'Twitter Share Button' });">
         X / Twitter
       </a>
+
+      <button class="share-btn copy-btn" onclick="copyUrl()">
+        Copy URL
+      </button>
+      
     </div>
   </div>
 
@@ -457,9 +551,9 @@
   </div>
 
 <script>
-  // ---- Official starting angle you control ----
+  // starting angle 
   // -90 = full blow, 0 = bloost, +90 = full boost
-  const DEFAULT_ANGLE = 10;   // <-- change this before each deployment
+  const DEFAULT_ANGLE = 0;   // <-- change this before each deployment
   const DEPLOY_DATE = "271020252202"; // <-- change this before each deployment
   const STORAGE_KEY   = `reevesometerAngle_${DEPLOY_DATE}`;
   const MAX_ANGLE     = 10;   // user movement range
@@ -506,6 +600,38 @@
       });
     }
   }
+
+  function copyUrl() {
+  const url = window.location.href.split('?')[0]; // Gets the base URL
+  navigator.clipboard.writeText(url).then(() => {
+    const copyBtn = document.querySelector('.copy-btn');
+    const originalText = copyBtn.textContent;
+    
+    // Provide quick visual feedback
+    copyBtn.textContent = "Copied!";
+    copyBtn.style.backgroundColor = "#2a9d8f"; // A temporary green background
+    copyBtn.style.color = "#fff";
+    
+    // Revert button text and style after 1.5 seconds
+    setTimeout(() => {
+      copyBtn.textContent = originalText;
+      copyBtn.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+      copyBtn.style.color = "#333";
+      copyBtn.style.border = "2px solid #ccc";
+    }, 1500);
+
+    if (typeof gtag === "function") {
+      gtag('event', 'share_copy', {
+        event_category: 'Engagement',
+        event_label: 'Copy URL Button'
+      });
+    }
+
+  }).catch(err => {
+    console.error('Could not copy text: ', err);
+    alert("Whoops.. could not copy URL. Please copy it manually, sorry!");
+  });
+}
   
   window.onload = () => {
     const saved = getStoredAngle();
