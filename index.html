@@ -227,25 +227,56 @@
       opacity: 0.7;
     }
 
+    /* Generate section */
+    .generate-section {
+      text-align: center;
+      margin-top: 0.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .generate-btn {
+      padding: 0.9rem 1.8rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(to right, #2a9d8f, #d62828);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shade 0.15s ease, opacity 0.15s ease;
+    }
+
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      opacity: 0.95;
+    }
+
     /* --- Voting section --- */
     .vote-section {
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 0.5rem;
       margin-bottom: 1rem;
       font-family: Arial, sans-serif;
       color: #333;
     }
 
+    .vote-section p + .vote-buttons {
+      margin-top: -0.8rem;   /* pull buttons up toward text */
+    }
+
     .vote-prompt {
       font-size: 1.1rem;
-      margin-bottom: 10px;
       line-height: 1.4;
+      margin-bottom: 0;
+      display: inline-block;
     }
 
     .vote-buttons {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
+      margin-top: 0;
     }
 
     .vote-btn {
@@ -277,7 +308,7 @@
 
     .share-section {
       text-align: center;
-      margin-top: 3rem;
+      margin-top: 1rem;
       margin-bottom: 1.5rem;
       font-family: Arial, sans-serif;
       color: #444;
@@ -365,6 +396,126 @@
       border-color: #999;
     }
 
+    /* Headline generator popup */
+    .generator-popup {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      z-index: 999;
+      transition: opacity 0.3s ease;
+    }
+
+    .generator-popup.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .popup-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem 3rem 2rem;
+      text-align: center;
+      font-family: "Arial Black", sans-serif;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      max-width: 90%;
+      width: 400px;
+      transition: background-color 0.4s ease;
+    }
+
+    .popup-content.blow {
+      background: linear-gradient(135deg, #ffe5e5 0%, #ffcccc 100%);
+    }
+
+    .popup-content.boost {
+      background: linear-gradient(135deg, #e2f8f2 0%, #c8f2e2 100%);
+    }
+
+    #popup-text {
+      font-size: 1.4rem;
+      font-weight: bold;
+      line-height: 1.3;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    #popup-text.headline-style {
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .popup-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .popup-btn,
+    .popup-btn:link,
+    .popup-btn:visited {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 42px;              
+      padding: 0 1.25rem;    
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: background 0.2s ease;
+      margin: 0;
+    }
+
+    .popup-btn:hover {
+      background: #444;
+    }
+
+    .popup-btn.close {
+      background: #333;
+      color: #fff;
+    }
+
+    .popup-btn.close:hover {
+      background: #444;
+    }
+
+    .popup-btn.share {
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      display: flex;     
+      align-items: center;       
+      justify-content: center;
+      line-height: 1;               
+      padding: 0.6rem 1.25rem;     
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .popup-btn.share:hover {
+      background: #444;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+
     /* --- Mobile layout adjustments --- */
 @media (max-width: 600px) {
   body {
@@ -403,6 +554,7 @@
 
   .bloost {
     font-size: 1.1rem;
+    top: -2rem;
   }
 
   .disclaimer {
@@ -457,7 +609,7 @@
   .vote-prompt {
     font-size: 1rem;
     line-height: 1.4;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
   }
 
   .vote-buttons {
@@ -514,6 +666,10 @@
     <span class="blow-score">BLOWS: 5</span>
   </div>
 
+  <div class="generate-section">
+    <button class="generate-btn" onclick="trackGenerate(); generateHeadline()">Generate your own headline</button>
+  </div>
+
   <div class="vote-section">
     <p class="vote-prompt">
       Will the next headline be a boost</span> or a blow</span> for Reeves?
@@ -548,6 +704,13 @@
     <!-- update this url before each deployment-->
     <a href="https://www.thetimes.com/business-money/companies/article/banks-interest-rate-decision-is-another-blow-for-reeves-7q36j2sww" target="blank" rel="noopener">headline</a>
     is real)
+  </div>
+
+  <!-- headline generator popup-->
+  <div id="generator-popup" class="generator-popup hidden">
+    <div class="popup-content">
+      <div id="popup-text">Generating...</div>
+    </div>
   </div>
 
 <script>
@@ -586,6 +749,82 @@
 
     saveAngle(newAngle);
     setArrow(newAngle);
+  }
+
+  async function generateHeadline() {
+  const popup = document.getElementById("generator-popup");
+  const content = popup.querySelector(".popup-content");
+  const popupText = document.getElementById("popup-text"); // ✅ define once here
+
+  popup.classList.remove("hidden");
+  content.classList.remove("blow", "boost");
+  popupText.classList.remove("headline-style");
+  popupText.textContent = "Generating...";
+
+  const words = [
+    "Generating...", 
+    "Calculating boost...", 
+    "Weighting blow...", 
+    "Running the numbers...", 
+    "Smashing the gangs..."
+  ];
+
+  let i = 0;
+
+  // cycle phrases
+  const interval = setInterval(() => {
+    popupText.textContent = words[i % words.length];
+    i++;
+  }, 700);
+
+  try {
+    // fetch json
+    const response = await fetch("headlines.json");
+    const data = await response.json();
+
+    // after x seconds, show final message
+    setTimeout(() => {
+      clearInterval(interval);
+
+      // pick random headline
+      const randomHeadline = data.headlines[Math.floor(Math.random() * data.headlines.length)];
+      const { type, text: headlineText } = randomHeadline;
+
+      content.classList.add(type);
+      popupText.classList.add("headline-style");
+      popupText.textContent = `"${headlineText}"`;
+
+
+      const shareURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        `${headlineText} https://reevesometer.co.uk`
+      )}`;
+
+      // add buttons
+      const buttonsHTML = `
+        <div class="popup-buttons">
+          <button class="popup-btn close" onclick="closePopup()">Close</button>
+          <a href="${shareURL}" target="_blank" rel="noopener" class="popup-btn share">Share on X</a>
+        </div>
+      `;
+      popupText.insertAdjacentHTML("afterend", buttonsHTML);
+    }, 5000);
+  } catch (err) {
+    console.error("Error fetching headlines:", err);
+    clearInterval(interval);
+    popupText.textContent = "Oops... failed to load headline!";
+  }
+}
+
+
+  function closePopup() {
+    const popup = document.getElementById("generator-popup");
+    popup.classList.add("hidden");
+    
+    // clean up previous content
+    const content = popup.querySelector(".popup-content");
+    const text = document.getElementById("popup-text");
+    content.classList.remove("blow", "boost");
+    text.nextElementSibling?.remove(); // remove buttons if present
   }
 
   function vote(side) {
@@ -638,6 +877,15 @@
     const startingAngle = saved !== null ? saved : DEFAULT_ANGLE;
     setArrow(startingAngle);
   };
+
+  function trackGenerate() {
+    if (typeof gtag === "function") {
+      gtag('event', 'generate_click', {
+        event_category: 'Engagement',
+        event_label: 'Generate Headline Button'
+      });
+    }
+  }
 </script>
   
 </body>
