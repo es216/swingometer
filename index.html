@@ -306,6 +306,28 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
+    .follow-section {
+      margin-top: 1.2rem;
+      text-align: center;
+    }
+
+    .follow-link {
+      font-size: 0.95rem;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      border: 2px solid #1da1f2;
+      color: #1da1f2;
+      background: rgba(255, 255, 255, 0.7);
+      transition: all 0.2s ease;
+    }
+
+    .follow-link:hover {
+      background: #1da1f2;
+      color: #fff;
+    }
+
     .share-section {
       text-align: center;
       margin-top: 1rem;
@@ -681,6 +703,19 @@
     </div>
   </div>
 
+  <div class="follow-section">
+    <a 
+      href="https://twitter.com/reevesometer" 
+      target="_blank" 
+      rel="noopener" 
+      class="follow-link"
+      onclick="gtag('event', 'follow_click', { event_category: 'engagement', event_label: 'Follow on X' })"
+    >
+      Follow @Reevesometer on X
+    </a>
+  </div>
+
+
   <div class="share-section">
     <p>Share today’s reading:</p>
     <div class="share-buttons">
@@ -803,7 +838,7 @@
       const buttonsHTML = `
         <div class="popup-buttons">
           <button class="popup-btn close" onclick="closePopup()">Close</button>
-          <a href="${shareURL}" target="_blank" rel="noopener" class="popup-btn share">Share on X</a>
+          <a href="${shareURL}" target="_blank" rel="noopener" class="popup-btn share">Tweet your headline</a>
         </div>
       `;
       popupText.insertAdjacentHTML("afterend", buttonsHTML);
