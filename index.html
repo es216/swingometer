@@ -635,12 +635,12 @@
   <div class="headline">
     <!-- update this headline and the-word before each deployment-->
     <span id="headline-text">
-       11/11/2025 THE INDEPENDENT: JOBLESS RATE HITS HIGHEST SINCE POST-PANDEMIC IN   
-       <span class="the-word">BLOW</span> TO REEVES BEFORE BUDGET
+       13/11/2025 THE STANDARD: NEW 
+       <span class="the-word">BLOW</span> FOR REEVES AS ECONOMY STALLS CLOSE TO ZERO IN RUN UP TO BUDGET
     </span>
     <span id="headline-indicator" class="blow">
       <!-- update estimate and class before each deployment-->
-      REEVES-O-METER estimates ▼ 15% blow
+      REEVES-O-METER estimates ▼ 8% blow
     </span>
   </div>
   
@@ -663,7 +663,7 @@
   <div class="scorecard">
     <span class="boost-score">BOOSTS: 2</span>
     <span class="divider">|</span>
-    <span class="blow-score">BLOWS: 6</span>
+    <span class="blow-score">BLOWS: 7</span>
   </div>
 
   <div class="generate-section">
@@ -702,7 +702,7 @@
 
   <div class="disclaimer">this is, of course, a parody (but the 
     <!-- update this url before each deployment-->
-    <a href="https://www.independent.co.uk/news/business/uk-unemployment-jobless-rate-wages-ons-b2862668.html" target="blank" rel="noopener">headline</a>
+    <a href="https://www.standard.co.uk/business/rachel-reeves-economy-gdp-ons-budget-growth-b1257873.html" target="blank" rel="noopener">headline</a>
     is real)
   </div>
 
@@ -716,8 +716,8 @@
 <script>
   // starting angle 
   // -90 = full blow, 0 = bloost, +90 = full boost
-  const DEFAULT_ANGLE = -32;   // <-- change this before each deployment
-  const DEPLOY_DATE = "111120250828"; // <-- change this before each deployment
+  const DEFAULT_ANGLE = -40;   // <-- change this before each deployment
+  const DEPLOY_DATE = "151120251712"; // <-- change this before each deployment
   const STORAGE_KEY   = `reevesometerAngle_${DEPLOY_DATE}`;
   const MAX_ANGLE     = 10;   // user movement range
   const STEP          = 2;    // each click = 2°
@@ -754,7 +754,7 @@
   async function generateHeadline() {
   const popup = document.getElementById("generator-popup");
   const content = popup.querySelector(".popup-content");
-  const popupText = document.getElementById("popup-text"); // ✅ define once here
+  const popupText = document.getElementById("popup-text"); // define once here
 
   popup.classList.remove("hidden");
   content.classList.remove("blow", "boost");
