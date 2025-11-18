@@ -77,7 +77,7 @@
     }
 
     .the-word {
-      color:#d62828; /* update colour if necessary before each deployment */
+      color:#2A9D8F; /* update colour if necessary before each deployment */
       font-size: 1.15em;
       font-weight: 900;
     }
@@ -657,12 +657,12 @@
   <div class="headline">
     <!-- update this headline and the-word before each deployment-->
     <span id="headline-text">
-       13/11/2025 THE STANDARD: NEW 
-       <span class="the-word">BLOW</span> FOR REEVES AS ECONOMY STALLS CLOSE TO ZERO IN RUN UP TO BUDGET
+       18/11/2025 REEVES-O-METER COMMENT: ALL QUIET ON THE REEVES FRONT AS MAHMOOD TAKES THE HEADLINES - THIS CAN ONLY BE A  
+       <span class="the-word">BOOST</span> FOR REEVES!
     </span>
-    <span id="headline-indicator" class="blow">
+    <span id="headline-indicator" class="boost">
       <!-- update estimate and class before each deployment-->
-      REEVES-O-METER estimates ▼ 8% blow
+      REEVES-O-METER estimates ▲ 4% boost
     </span>
   </div>
   
@@ -737,8 +737,8 @@
 
   <div class="disclaimer">this is, of course, a parody (but the 
     <!-- update this url before each deployment-->
-    <a href="https://www.standard.co.uk/business/rachel-reeves-economy-gdp-ons-budget-growth-b1257873.html" target="blank" rel="noopener">headline</a>
-    is real)
+    <!--<a href="https://www.standard.co.uk/business/rachel-reeves-economy-gdp-ons-budget-growth-b1257873.html" target="blank" rel="noopener">headline</a>-->headlines
+    are real)
   </div>
 
   <!-- headline generator popup-->
@@ -751,8 +751,8 @@
 <script>
   // starting angle 
   // -90 = full blow, 0 = bloost, +90 = full boost
-  const DEFAULT_ANGLE = -40;   // <-- change this before each deployment
-  const DEPLOY_DATE = "151120251712"; // <-- change this before each deployment
+  const DEFAULT_ANGLE = -36;   // <-- change this before each deployment
+  const DEPLOY_DATE = "181120251744"; // <-- change this before each deployment
   const STORAGE_KEY   = `reevesometerAngle_${DEPLOY_DATE}`;
   const MAX_ANGLE     = 10;   // user movement range
   const STEP          = 2;    // each click = 2°
@@ -798,9 +798,8 @@
 
   const words = [
     "Generating...", 
-    "Calculating boost...", 
-    "Weighting blow...", 
-    "Running the numbers...", 
+    "Calculating the boost...", 
+    "Weighting the blow...",
     "Smashing the gangs..."
   ];
 
@@ -846,7 +845,7 @@
   } catch (err) {
     console.error("Error fetching headlines:", err);
     clearInterval(interval);
-    popupText.textContent = "Oops... failed to load headline!";
+    popupText.textContent = "Failed to load headline. Too busy running the numbers.";
   }
 }
 
