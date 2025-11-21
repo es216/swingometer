@@ -10,6 +10,7 @@
 
   gtag('config', 'G-CFSNPXGF4T');
 </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -77,7 +78,7 @@
     }
 
     .the-word {
-      color:#2A9D8F; /* update colour if necessary before each deployment */
+      color:#d62828; /* update colour if necessary before each deployment */
       font-size: 1.15em;
       font-weight: 900;
     }
@@ -262,7 +263,7 @@
     }
 
     .vote-section p + .vote-buttons {
-      margin-top: -0.8rem;   /* pull buttons up toward text */
+      margin-top: -0.8rem;   
     }
 
     .vote-prompt {
@@ -306,6 +307,22 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
+    .vote-counter {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .blow-count {
+      color: #d62828;
+    }
+
+    .boost-count {
+      color: #2a9d8f;
+    }
+
     .follow-section {
       margin-top: 1.2rem;
       text-align: center;
@@ -330,7 +347,7 @@
 
     .share-section {
       text-align: center;
-      margin-top: 1rem;
+      margin-top: -3rem;
       margin-bottom: 1.5rem;
       font-family: Arial, sans-serif;
       color: #444;
@@ -377,7 +394,7 @@
       background: rgba(240, 240, 240, 0.9);
     }
 
-    /* Optional subtle brand hints */
+    
     .share-btn.twitter:hover {
       color: #1da1f2;
       border-color: #1da1f2;
@@ -646,8 +663,11 @@
     font-size: 0.95rem;
     padding: 0.75rem 1.25rem;
   }
-}
 
+   .follow-section {
+    margin-bottom: 1rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -657,15 +677,14 @@
   <div class="headline">
     <!-- update this headline and the-word before each deployment-->
     <span id="headline-text">
-       19/11/2025 THE INDEPENDENT: UK INFLATION DROPS TO 3.6% IN PRE-BUDGET 
-       <span class="the-word">BOOST</span> TO CONSUMERS AND RACHEL REEVES
+       20/11/2025 DAILY EXPRESS: HUGE  
+       <span class="the-word">BLOW</span> FOR RACHEL REEVES AS EUROTUNNEL CANCELS ALL UK PROJECTS OVER HIGH TAXES
     </span>
-    <span id="headline-indicator" class="boost">
+    <span id="headline-indicator" class="blow">
       <!-- update estimate and class before each deployment-->
-      REEVES-O-METER estimates ▲ 10% boost
+      REEVES-O-METER estimates ▼ 5% blow
     </span>
   </div>
-  
 
   <div class="swingometer">
     <div class="bloost">BLOOST!</div>
@@ -680,12 +699,28 @@
     <span class="boost">Boost!</span>
   </div>
 
+    <div class="share-section">
+    <p>Share today’s reading:</p>
+    <div class="share-buttons">
+      <!-- update "BOOST" or "BLOW" in share url-->
+      <a href="https://twitter.com/intent/tweet?text=Today’s%20Reeves-o-meter%20reading%20is%20a%20BLOW%20for%20Rachel%20Reeves!%20https%3A%2F%2Freevesometer.co.uk"
+        target="_blank" rel="noopener" class="share-btn twitter"
+        onclick="gtag('event', 'share_twitter', { 'event_category': 'engagement', 'event_label': 'Twitter Share Button' });">
+        X / Twitter
+      </a>
+
+      <button class="share-btn copy-btn" onclick="copyUrl()">
+        Copy URL
+      </button>
+    </div>
+  </div>
+
   <div class="scorecard-header">Budget season scorecard</div>
 
   <div class="scorecard">
     <span class="boost-score">BOOSTS: 3</span>
     <span class="divider">|</span>
-    <span class="blow-score">BLOWS: 7</span>
+    <span class="blow-score">BLOWS: 8</span>
   </div>
 
   <div class="generate-section">
@@ -694,12 +729,18 @@
 
   <div class="vote-section">
     <p class="vote-prompt">
-      Will the next headline be a boost</span> or a blow</span> for Reeves?
+      Will the next headline be a boost or a blow for Reeves?
     </p>
 
     <div class="vote-buttons">
-      <button class="vote-btn blow-btn" onclick="vote('blow')">💨 Blow</button>
-      <button class="vote-btn boost-btn" onclick="vote('boost')">🚀 Boost</button>
+      <div>
+        <button class="vote-btn blow-btn" onclick="vote('blow'); firebaseVote('blows')">💨 Blow</button>
+        <!--<div class="vote-counter blow-count">0</div>-->
+      </div>
+      <div>
+        <button class="vote-btn boost-btn" onclick="vote('boost'); firebaseVote('boosts')">🚀 Boost</button>
+        <!--<div class="vote-counter boost-count">0</div>-->
+      </div>
     </div>
   </div>
 
@@ -716,10 +757,10 @@
   </div>
 
 
-  <div class="share-section">
+  <!--<div class="share-section">
     <p>Share today’s reading:</p>
     <div class="share-buttons">
-      <!-- update "BOOST" or "BLOW" in share url-->
+      <!-- update "BOOST" or "BLOW" in share url--> <!--
       <a href="https://twitter.com/intent/tweet?text=Today’s%20Reeves-o-meter%20reading%20is%20a%20BLOW%20for%20Rachel%20Reeves!%20https%3A%2F%2Freevesometer.co.uk"
         target="_blank" rel="noopener" class="share-btn twitter"
         onclick="gtag('event', 'share_twitter', { 'event_category': 'engagement', 'event_label': 'Twitter Share Button' });">
@@ -729,15 +770,14 @@
       <button class="share-btn copy-btn" onclick="copyUrl()">
         Copy URL
       </button>
-      
     </div>
   </div>
-
+-->
   <a href="past/" class="past-link">Past Headlines</a>
 
   <div class="disclaimer">this is, of course, a parody (but the 
     <!-- update this url before each deployment-->
-    <a href="https://www.independent.co.uk/news/business/inflation-uk-latest-rachel-reeves-budget-b2867493.html" target="blank" rel="noopener">headline</a>
+    <a href="https://www.express.co.uk/news/politics/2136679/Taxes-Labour-economy-Rachel-Reeves-Eurotunnel" target="blank" rel="noopener">headline</a>
     is real)
   </div>
 
@@ -749,10 +789,11 @@
   </div>
 
 <script>
+
   // starting angle 
   // -90 = full blow, 0 = bloost, +90 = full boost
-  const DEFAULT_ANGLE = -26;   // <-- change this before each deployment
-  const DEPLOY_DATE = "191120250801"; // <-- change this before each deployment
+  const DEFAULT_ANGLE = -31;   // <-- change this before each deployment
+  const DEPLOY_DATE = "201120250747"; // <-- change this before each deployment
   const STORAGE_KEY   = `reevesometerAngle_${DEPLOY_DATE}`;
   const MAX_ANGLE     = 10;   // user movement range
   const STEP          = 2;    // each click = 2°
@@ -921,6 +962,61 @@
     }
   }
 </script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  import { getDatabase, ref, runTransaction } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCsUqIWBIFRlgBZ2yLqH52yQCilV0bpCKU",
+    authDomain: "reevesometer.firebaseapp.com",
+    databaseURL: "https://reevesometer-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "reevesometer",
+    storageBucket: "reevesometer.firebasestorage.app",
+    messagingSenderId: "560034726940",
+    appId: "1:560034726940:web:68632a372e4f225c3f4bd9",
+    measurementId: "G-VJZWZG8EHV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  const db = getDatabase(app);
+
+  function firebaseVote(type) {
+    const voteRef = ref(db, `votes/${DEPLOY_DATE}/${type}`);
+    runTransaction(voteRef, current => (current || 0) + 1)
+      .then(snapshot => console.log(`${type} count updated:`, snapshot))
+      .catch(err => console.error("Firebase vote failed:", err));
+  }
+
+  // Expose to global so inline HTML onclick can access it
+  window.firebaseVote = firebaseVote;
+
+
+  import { onValue } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
+
+  const boostsRef = ref(db, `votes/${DEPLOY_DATE}/boosts`);
+  const blowsRef  = ref(db, `votes/${DEPLOY_DATE}/blows`);
+
+  onValue(boostsRef, snapshot => {
+    document.querySelector('.boost-count').textContent = snapshot.val() || 0;
+  });
+
+  onValue(blowsRef, snapshot => {
+    document.querySelector('.blow-count').textContent = snapshot.val() || 0;
+  });
+</script>
+
+
+
   
 </body>
 </html>
