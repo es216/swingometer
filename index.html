@@ -54,6 +54,49 @@
       color: #222;
     }
 
+/**    .party-banner {
+      position: fixed;
+      top: -20rem;        
+      left: -150px;     
+      width: 200vw;       
+      height: 50px;
+      background: repeating-linear-gradient(
+        45deg,
+        #d62828,
+        #d62828 20px,
+        #F6AE2D 20px,
+        #F6AE2D 40px,
+        #2a9d8f 40px,
+        #2a9d8f 60px
+      );
+      transform: rotate(-20deg);  
+      opacity: 0.30;           
+      z-index: 0;                 
+      pointer-events: none;       
+      color: white;
+      gap: 100px;
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      white-space: nowrap;
+    }
+
+    .party-banner.two {
+      top: 0rem;
+    }
+
+    .party-banner.three {
+      top: 20rem;
+    }
+
+    .party-banner.four {
+      top: 40rem;
+    }
+
+    .party-banner.five {
+      top: 60rem;
+    } */
+
     h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
@@ -561,6 +604,11 @@
     justify-content: flex-start;
     padding-top: 0.5rem;
     padding-bottom: 5rem;
+    overflow-x: hidden;
+  }
+
+  .party-banner {
+    white-space: nowrap;
   }
 
   h1 {
@@ -671,18 +719,24 @@
   </style>
 </head>
 <body>
+ <!-- <div class="party-banner">BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY </div>
+  <div class="party-banner two">BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY </div>
+  <div class="party-banner three">BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY </div>
+  <div class="party-banner four">BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY </div>
+  <div class="party-banner five">BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY BUDGET DAY </div>
+-->
   
   <h1>REEVES-O-METER</h1>
 
   <div class="headline">
     <!-- update this headline and the-word before each deployment-->
     <span id="headline-text">
-       20/11/2025 DAILY EXPRESS: HUGE  
-       <span class="the-word">BLOW</span> FOR RACHEL REEVES AS EUROTUNNEL CANCELS ALL UK PROJECTS OVER HIGH TAXES
+       21/11/2025 THE INDEPENDENT: GOVERNMENT BORROWING HIGHER-THAN-FORECAST IN PRE-BUDGET  
+       <span class="the-word">BLOW</span> TO CHANCELLOR
     </span>
     <span id="headline-indicator" class="blow">
       <!-- update estimate and class before each deployment-->
-      REEVES-O-METER estimates ▼ 5% blow
+      REEVES-O-METER estimates ▼ 8% blow
     </span>
   </div>
 
@@ -709,9 +763,15 @@
         X / Twitter
       </a>
 
-      <button class="share-btn copy-btn" onclick="copyUrl()">
+      <!-- need to add display: none to this button below when pushing the native share button live-->
+      <button id="desktop-share-btn" class="share-btn copy-btn" onclick="copyUrl()">
         Copy URL
       </button>
+
+      <!--<button id="native-share-btn" class="share-btn" style="display:none"
+        onclick="shareHeadlineNative()">
+        Share Anywhere
+      </button>-->
     </div>
   </div>
 
@@ -720,7 +780,7 @@
   <div class="scorecard">
     <span class="boost-score">BOOSTS: 3</span>
     <span class="divider">|</span>
-    <span class="blow-score">BLOWS: 8</span>
+    <span class="blow-score">BLOWS: 9</span>
   </div>
 
   <div class="generate-section">
@@ -777,7 +837,7 @@
 
   <div class="disclaimer">this is, of course, a parody (but the 
     <!-- update this url before each deployment-->
-    <a href="https://www.express.co.uk/news/politics/2136679/Taxes-Labour-economy-Rachel-Reeves-Eurotunnel" target="blank" rel="noopener">headline</a>
+    <a href="https://www.independent.co.uk/news/business/rachel-reeves-chancellor-government-mel-stride-office-for-budget-responsibility-b2869671.html" target="blank" rel="noopener">headline</a>
     is real)
   </div>
 
@@ -792,7 +852,7 @@
 
   // starting angle 
   // -90 = full blow, 0 = bloost, +90 = full boost
-  const DEFAULT_ANGLE = -31;   // <-- change this before each deployment
+  const DEFAULT_ANGLE = -39;   // <-- change this before each deployment
   const DEPLOY_DATE = "201120250747"; // <-- change this before each deployment
   const STORAGE_KEY   = `reevesometerAngle_${DEPLOY_DATE}`;
   const MAX_ANGLE     = 10;   // user movement range
@@ -850,7 +910,7 @@
   const interval = setInterval(() => {
     popupText.textContent = words[i % words.length];
     i++;
-  }, 700);
+  }, 300);
 
   try {
     // fetch json
@@ -882,7 +942,7 @@
         </div>
       `;
       popupText.insertAdjacentHTML("afterend", buttonsHTML);
-    }, 5000);
+    }, 2000);
   } catch (err) {
     console.error("Error fetching headlines:", err);
     clearInterval(interval);
@@ -1013,6 +1073,81 @@
   onValue(blowsRef, snapshot => {
     document.querySelector('.blow-count').textContent = snapshot.val() || 0;
   });
+
+
+// Check if device is mobile
+function isMobileDevice() {
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+// Check if native share can be used
+function canUseNativeShare() {
+  if (!navigator.share) return false;
+
+  // For browsers with navigator.canShare, validate with a dummy payload
+  if (navigator.canShare) {
+    return navigator.canShare({ text: "test" });
+  }
+
+  // Otherwise, only allow iOS Safari and Chrome Android
+  const ua = navigator.userAgent;
+  const isSafari = /iPhone|iPad|iPod/.test(ua);
+  const isChromeAndroid = /Android.*Chrome/.test(ua);
+  return isSafari || isChromeAndroid;
+}
+/*
+// Setup share buttons
+function setupShareButtons() {
+  const nativeBtn = document.getElementById("native-share-btn");
+  const desktopBtn = document.getElementById("desktop-share-btn");
+
+  if (!nativeBtn || !desktopBtn) return;
+
+  // Hide both initially
+  nativeBtn.style.display = "none";
+  desktopBtn.style.display = "none";
+
+  if (isMobileDevice() && canUseNativeShare()) {
+    nativeBtn.style.display = "inline-flex"; // show mobile native share
+  } else {
+    desktopBtn.style.display = "inline-flex"; // show copy URL for desktop or unsupported mobile
+  }
+}
+
+// Call after full DOM load
+window.addEventListener("load", setupShareButtons);
+
+// Native share handler
+function shareHeadlineNative() {
+  const headline = document.getElementById('headline-text').innerText;
+  const url = window.location.href.split('?')[0];
+
+  navigator.share({
+    title: 'Reeves-o-Meter',
+    text: headline,
+    url: url
+  }).catch((err) => console.error('Share failed:', err));
+}
+
+// Copy URL function for desktop
+function copyUrl() {
+  const url = window.location.href.split('?')[0];
+  navigator.clipboard.writeText(url).then(() => {
+    const copyBtn = document.getElementById('desktop-share-btn');
+    const originalText = copyBtn.textContent;
+    copyBtn.textContent = "Copied!";
+    copyBtn.style.backgroundColor = "#2a9d8f";
+    copyBtn.style.color = "#fff";
+    setTimeout(() => {
+      copyBtn.textContent = originalText;
+      copyBtn.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+      copyBtn.style.color = "#333";
+    }, 1500);
+  });
+}*/
+
+
+
 </script>
 
 
